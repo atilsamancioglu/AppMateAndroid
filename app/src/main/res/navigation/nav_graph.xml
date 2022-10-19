@@ -18,5 +18,9 @@
         android:id="@+id/buyFragment"
         android:name="com.atilsamancioglu.appmatedemo.BuyFragment"
         android:label="fragment_buy"
-        tools:layout="@layout/fragment_buy" />
+        tools:layout="@layout/fragment_buy" >
+        <argument
+            android:name="productID"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/buyFragmentProductNameText"
         android:layout_width="168dp"
         android:layout_height="35dp"
         android:layout_marginTop="70dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/buyFragmentDescriptionText"
         android:layout_width="263dp"
         android:layout_height="37dp"
         android:layout_marginTop="50dp"
@@ -29,15 +29,15 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/buyFragmentProductNameText" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buyFragmentBuyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Satın Al"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/buyFragmentDescriptionText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
