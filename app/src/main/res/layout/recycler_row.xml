@@ -2,18 +2,35 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerTextView"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerNameText"
         android:textSize="20sp"
-        android:textColor="#504B4B"
-        android:paddingStart="20dp"
+        android:textColor="#213E95"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:padding="5dp"
         >
 
     </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerPriceText"
+        android:textSize="16sp"
+        android:textColor="#423E3E"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:padding="5dp"
+        >
+
+    </TextView>
+
 
 </LinearLayout>

@@ -7,18 +7,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.atilsamancioglu.appmatedemo.databinding.RecyclerRowBinding
 import com.huawei.appmate.model.Product
 
-class RecyclerAdapter(val productList : ArrayList<Product>) : RecyclerView.Adapter<RecyclerAdapter.LandmarkHolder>() {
-    class LandmarkHolder(val binding : RecyclerRowBinding) : RecyclerView.ViewHolder(binding.root) {
+class ProductRecyclerAdapter(private val productList : List<Product>) : RecyclerView.Adapter<ProductRecyclerAdapter.ProductHolder>() {
+    class ProductHolder(val binding : RecyclerRowBinding) : RecyclerView.ViewHolder(binding.root) {
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LandmarkHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         val binding = RecyclerRowBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return LandmarkHolder(binding)
+        return ProductHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: LandmarkHolder, position: Int) {
-        holder.binding.recyclerTextView.text = productList.get(position).productLocales.first().productName
+    override fun onBindViewHolder(holder: ProductHolder, position: Int) {
+        holder.binding.recyclerNameText.text = productList.get(position).productLocales.first().productName
+        holder.binding.recyclerPriceText.text = productList.get(position).price
+
         holder.itemView.setOnClickListener {
             val action = FirstFragmentDirections.actionFirstFragmentToBuyFragment(productList.get(position).productId)
             Navigation.findNavController(it).navigate(action)

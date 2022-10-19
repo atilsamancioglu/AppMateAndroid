@@ -22,5 +22,8 @@
         <argument
             android:name="productID"
             app:argType="string" />
+        <action
+            android:id="@+id/action_buyFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
     </fragment>
 </navigation>

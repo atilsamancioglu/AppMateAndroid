@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.android.billingclient.api.BillingResult
@@ -14,6 +15,8 @@ import com.huawei.appmate.PurchaseClient
 import com.huawei.appmate.callback.PurchaseResultListener
 import com.huawei.appmate.callback.ReceivedDataListener
 import com.huawei.appmate.model.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.lang.Error
 
 
@@ -49,8 +52,10 @@ class BuyFragment : Fragment() {
             PurchaseClient.instance.getProductsByProductIdList(listOf(selectedProductId), object : ReceivedDataListener<List<Product>, GenericError> {
                 override fun onSucceeded(data: List<Product>) {
                     val product = data.first()
-                    binding.buyFragmentProductNameText.text= product.productLocales.first().productName
-                    binding.buyFragmentDescriptionText.text= product.productLocales.first().productDesc
+                    lifecycleScope.launch(context = Dispatchers.Main) {
+                        binding.buyFragmentProductNameText.text= product.productLocales.first().productName
+                        binding.buyFragmentDescriptionText.text= product.productLocales.first().productDesc
+                    }
                 }
 
                 override fun onError(error: GenericError) {
@@ -64,7 +69,7 @@ class BuyFragment : Fragment() {
                 purchaseRequest = PurchaseRequest(selectedProductId, ProductType.CONSUMABLE),
                 listener = object : PurchaseResultListener<PurchaseResultInfo, GenericError> {
                     override fun onSuccess(data: PurchaseResultInfo) {
-                        findNavController().navigate(R.id.firstFragment)
+                        println("success")
                     }
 
                     override fun onError(error: GenericError) {
